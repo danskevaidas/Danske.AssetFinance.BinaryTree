@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Danske.AssetFinance.Services", "Danske.AssetFinance.Services\Danske.AssetFinance.Services.csproj", "{B685E419-8B70-4B11-BFD8-F0E2C02AE810}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Danske.AssetFinance.UnitTests", "Danske.AssetFinance.UnitTests\Danske.AssetFinance.UnitTests.csproj", "{2754BFC3-7040-4E5C-BA2A-287B75B8A764}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B685E419-8B70-4B11-BFD8-F0E2C02AE810}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B685E419-8B70-4B11-BFD8-F0E2C02AE810}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B685E419-8B70-4B11-BFD8-F0E2C02AE810}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B685E419-8B70-4B11-BFD8-F0E2C02AE810}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2754BFC3-7040-4E5C-BA2A-287B75B8A764}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2754BFC3-7040-4E5C-BA2A-287B75B8A764}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2754BFC3-7040-4E5C-BA2A-287B75B8A764}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2754BFC3-7040-4E5C-BA2A-287B75B8A764}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
