@@ -48,5 +48,16 @@ namespace Danske.AssetFinance.UnitTests
             var maxSum = _service.SumOfOddEvenMaxPath(input);
             Assert.Equal(8186, maxSum);
         }
+        
+        [Fact]
+        public void TestSumOfOddEvenMaxPath3()
+        {
+            var input = new int[2][];
+            input[0] = new[] {2};
+            input[1] = new[] {8, 1};
+
+            var maxSum = _service.SumOfOddEvenMaxPath(input);
+            Assert.Equal(3, maxSum);
+        }
     }
 }

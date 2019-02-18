@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Danske.AssetFinance.Services
 {
@@ -7,20 +8,21 @@ namespace Danske.AssetFinance.Services
         public int SumOfOddEvenMaxPath(int[][] input)
         {
             var totalLines = input.Length;
-            if (totalLines == 0 || totalLines != input[totalLines - 1].Length)
+            if (totalLines == 0 || totalLines != input[totalLines - 1].Length || input.Any(a => a.Any(n => n == 0)))
             {
                 throw new Exception("Binary tree is not valid");
             }
 
-            var bottomLineType = GetOddEvenType(totalLines);
+            var firstLineType = GetOddEvenType(input[0][0]);
+
+            var bottomLineType = GetLineType(totalLines - 1, firstLineType);
             input[totalLines - 1] = NullifyWrongTypeNumbers(input[totalLines - 1], bottomLineType);
             
-            
             for (var i = (totalLines - 2); i >= 0; i--) 
-            { 
+            {
                 for (var j = 0; j <= i; j++)
                 {
-                    var lineType = GetOddEvenType(i + 1);
+                    var lineType = GetLineType(i, firstLineType);
 
                     if (!IsType(input[i][j], lineType))
                     {
@@ -30,8 +32,16 @@ namespace Danske.AssetFinance.Services
                     
                     var bottomLeftValue = input[i + 1][j];
                     var bottomRightValue = input[i + 1][j + 1];
-
-                    input[i][j] += Math.Max(bottomLeftValue, bottomRightValue);
+                    var biggestValue = Math.Max(bottomLeftValue, bottomRightValue);
+                    
+                    if (biggestValue == 0)
+                    {
+                        input[i][j] = 0;
+                    }
+                    else
+                    {
+                        input[i][j] += biggestValue;
+                    }
                 } 
             }
 
@@ -54,6 +64,12 @@ namespace Danske.AssetFinance.Services
         private bool IsType(int value, OddEven type)
         {
             return GetOddEvenType(value) == type;
+        }
+
+        private OddEven GetLineType(int lineIndex, OddEven firstLineType)
+        {
+            var type = firstLineType == OddEven.Even ? GetOddEvenType(lineIndex) : GetOddEvenType(lineIndex + 1);
+            return type;
         }
         
         private OddEven GetOddEvenType(int value)
